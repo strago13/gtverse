@@ -1,0 +1,10 @@
+ 
+ 6/26/2013
+ 	Plot the sentiment that is being expressed on Twitter
+ 	Plot the sentiment that is being expressed through newspapers
+ 	
+ 	Expand the set by any tweets sent by or too organizations sent in Maryland (done)
+ 	
+ 	Training set/Test set clarification
+ 	
+ 	Keep adding papers to Mendelay
