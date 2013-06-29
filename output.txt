@@ -2170,16 +2170,359 @@ conservatives	pos
 marriage	pos
 equality	pos
 url	pos
-accuracy: 0.0
-accuracy: 0.892857142857
-accuracy: 0.892857142857
-accuracy: 0.964285714286
-accuracy: 0.964285714286
-accuracy: 0.928571428571
-accuracy: 0.892857142857
-accuracy: 1.0
-accuracy: 1.0
-accuracy: 0.344827586207
+Overall Accuracy: 0.5
+Overall Accuracy: 0.892857142857
+Overall Accuracy: 0.964285714286
+Overall Accuracy: 0.928571428571
+Overall Accuracy: 0.821428571429
+Overall Accuracy: 0.928571428571
+Overall Accuracy: 0.964285714286
+Overall Accuracy: 0.964285714286
+Overall Accuracy: 0.714285714286
+Overall Accuracy: 0.448275862069
+evaluating single word features
+word_feats fold 0
+accuracy: 0.444444444444
+pos precision: 0.75
+pos recall: 0.375
+neg precision: 0.428571428571
+neg recall: 0.75
+word_feats fold 1
+accuracy: 0.481481481481
+pos precision: 0.714285714286
+pos recall: 0.555555555556
+neg precision: 0.3125
+neg recall: 0.714285714286
+word_feats fold 2
+accuracy: 0.592592592593
+pos precision: 0.666666666667
+pos recall: 0.6
+neg precision: 0.571428571429
+neg recall: 0.727272727273
+word_feats fold 3
+accuracy: 0.37037037037
+pos precision: 1.0
+pos recall: 0.142857142857
+neg precision: 0.32
+neg recall: 1.0
+word_feats fold 4
+accuracy: 0.666666666667
+pos precision: 0.75
+pos recall: 0.9
+neg precision: 0.538461538462
+neg recall: 0.777777777778
+word_feats fold 5
+accuracy: 0.346153846154
+pos precision: 1.0
+pos recall: 0.333333333333
+neg precision: 0.15
+neg recall: 1.0
+word_feats fold 6
+accuracy: 0.384615384615
+pos precision: 0.833333333333
+pos recall: 0.5
+neg precision: 0.117647058824
+neg recall: 0.666666666667
+word_feats fold 7
+accuracy: 0.615384615385
+pos precision: 0.857142857143
+pos recall: 0.545454545455
+neg precision: 0.529411764706
+neg recall: 0.9
+word_feats fold 8
+accuracy: 0.269230769231
+pos precision: 0.5
+pos recall: 0.181818181818
+neg precision: 0.222222222222
+neg recall: 0.444444444444
+word_feats fold 9
+accuracy: 0.346153846154
+pos precision: 0.75
+pos recall: 0.272727272727
+neg precision: 0.2
+neg recall: 0.8
+word_feats fold 10
+accuracy: 0.730769230769
+pos precision: 1.0
+pos recall: 0.692307692308
+neg precision: 0.461538461538
+neg recall: 1.0
+0.477078477078 [0.4444444444444444, 0.48148148148148145, 0.5925925925925926, 0.37037037037037035, 0.6666666666666666, 0.34615384615384615, 0.38461538461538464, 0.6153846153846154, 0.2692307692307692, 0.34615384615384615, 0.7307692307692307]
+evaluating all word and bigram features
+all_word_bigram_feats fold 0
+accuracy: 0.407407407407
+pos precision: 0.444444444444
+pos recall: 0.5
+neg precision: 0.428571428571
+neg recall: 0.5
+all_word_bigram_feats fold 1
+accuracy: 0.481481481481
+pos precision: 0.615384615385
+pos recall: 0.888888888889
+neg precision: 0.333333333333
+neg recall: 0.571428571429
+all_word_bigram_feats fold 2
+accuracy: 0.703703703704
+pos precision: 0.7
+pos recall: 0.7
+neg precision: 0.692307692308
+neg recall: 0.818181818182
+all_word_bigram_feats fold 3
+accuracy: 0.518518518519
+pos precision: 0.75
+pos recall: 0.428571428571
+neg precision: 0.368421052632
+neg recall: 0.875
+all_word_bigram_feats fold 4
+accuracy: 0.62962962963
+pos precision: 0.625
+pos recall: 1.0
+neg precision: 0.625
+neg recall: 0.555555555556
+all_word_bigram_feats fold 5
+accuracy: 0.5
+pos precision: 0.818181818182
+pos recall: 0.75
+neg precision: 0.153846153846
+neg recall: 0.666666666667
+all_word_bigram_feats fold 6
+accuracy: 0.538461538462
+pos precision: 0.888888888889
+pos recall: 0.8
+neg precision: 0.230769230769
+neg recall: 1.0
+all_word_bigram_feats fold 7
+accuracy: 0.769230769231
+pos precision: 0.909090909091
+pos recall: 0.909090909091
+neg precision: 0.642857142857
+neg recall: 0.9
+all_word_bigram_feats fold 8
+accuracy: 0.461538461538
+pos precision: 0.666666666667
+pos recall: 0.545454545455
+neg precision: 0.375
+neg recall: 0.666666666667
+all_word_bigram_feats fold 9
+accuracy: 0.5
+pos precision: 0.7
+pos recall: 0.636363636364
+neg precision: 0.307692307692
+neg recall: 0.8
+all_word_bigram_feats fold 10
+accuracy: 0.807692307692
+pos precision: 0.8125
+pos recall: 1.0
+neg precision: 0.75
+neg recall: 1.0
+0.574333074333 [0.4074074074074074, 0.48148148148148145, 0.7037037037037037, 0.5185185185185185, 0.6296296296296297, 0.5, 0.5384615384615384, 0.7692307692307693, 0.46153846153846156, 0.5, 0.8076923076923077]
+evaluating top bigram word features
+top_bigram_word_feats fold 0
+accuracy: 0.407407407407
+pos precision: 0.444444444444
+pos recall: 0.5
+neg precision: 0.428571428571
+neg recall: 0.5
+top_bigram_word_feats fold 1
+accuracy: 0.481481481481
+pos precision: 0.615384615385
+pos recall: 0.888888888889
+neg precision: 0.333333333333
+neg recall: 0.571428571429
+top_bigram_word_feats fold 2
+accuracy: 0.703703703704
+pos precision: 0.7
+pos recall: 0.7
+neg precision: 0.692307692308
+neg recall: 0.818181818182
+top_bigram_word_feats fold 3
+accuracy: 0.518518518519
+pos precision: 0.75
+pos recall: 0.428571428571
+neg precision: 0.368421052632
+neg recall: 0.875
+top_bigram_word_feats fold 4
+accuracy: 0.62962962963
+pos precision: 0.625
+pos recall: 1.0
+neg precision: 0.625
+neg recall: 0.555555555556
+top_bigram_word_feats fold 5
+accuracy: 0.5
+pos precision: 0.818181818182
+pos recall: 0.75
+neg precision: 0.153846153846
+neg recall: 0.666666666667
+top_bigram_word_feats fold 6
+accuracy: 0.538461538462
+pos precision: 0.888888888889
+pos recall: 0.8
+neg precision: 0.230769230769
+neg recall: 1.0
+top_bigram_word_feats fold 7
+accuracy: 0.769230769231
+pos precision: 0.909090909091
+pos recall: 0.909090909091
+neg precision: 0.642857142857
+neg recall: 0.9
+top_bigram_word_feats fold 8
+accuracy: 0.461538461538
+pos precision: 0.666666666667
+pos recall: 0.545454545455
+neg precision: 0.375
+neg recall: 0.666666666667
+top_bigram_word_feats fold 9
+accuracy: 0.5
+pos precision: 0.7
+pos recall: 0.636363636364
+neg precision: 0.307692307692
+neg recall: 0.8
+top_bigram_word_feats fold 10
+accuracy: 0.807692307692
+pos precision: 0.8125
+pos recall: 1.0
+neg precision: 0.75
+neg recall: 1.0
+0.574333074333 [0.4074074074074074, 0.48148148148148145, 0.7037037037037037, 0.5185185185185185, 0.6296296296296297, 0.5, 0.5384615384615384, 0.7692307692307693, 0.46153846153846156, 0.5, 0.8076923076923077]
+evaluating best word features
+best words: set(['all', 'jason', 'forget', 'consciences', 'saying', 'caused', 'demand', 'focus', 'existing', 'protest', 'ugh', 'emotional', 'gronstal', 'go', 'follow', 'conservative', 'religious', 'children', 'marching', 'ravens', 'w/every1', 'sf', 'ty', 'tv', 'tweet', 'father', 'young', 'to', 'citing', 'promoting', '14', 'maryland', 'pledges', 'p2', 'woman', 'md', 'far', 'means1m', 'every', 'updates', 'telling', 'vastly', 'month', 'bringing', 'pt2', 'moines', 'divorced', 'level', '--', 'die', 'marry', 'rights', 'hawaii', 'mlk', 'small', 'straight', 'dir', 'hb444', 'angelou', 'mn', 'says', 'leaders', 'tired', 'warns', 'ted', 'direct', 'sign', 'battle', 'likely', 'video', 'wo', 'hymn', 'will', 'what', 'defence', 'paintings', 'hate', '+', 'axes', 'favour', 'kate', 'kalley', 'gubernatorial', 'churches', ';', 'seemed', 'ever', 'seeks', 'supporting', 'meg', 'full', 'christian', 'clergy', 'interns', '18,000', 'muslim', 'giant', 'drew', 'eminem', 'lgbt', 'unanimously', 'let', 'groups', 'november', 'backlash', 'change', 'wait', 'great', 'ultra', 'sure', 'experience', 'cheney', 'trial', 'survey', 'defeat', 'action', 'icky', 'head', 'ruin', 'golden', 'via', "'national", 'campaign', 'statewide', 'win', 'imagine', 'precincts', 'marriages', 'why', 'sanction', 'des', 'post', 'opponents', 'fed', 'cheating', 'eye', 'takes', 'usa', '&', 'positive', 'voters', 'older', 'ministers', 'hashtag', 'next', 'few', 'upheld', 'opposed', 'recommend', '340', 'bill', "'s", 'until', 'today', 'loving', 'chapter', 'knows', 'successful', 'becomes', 'freedom', 'yahoo', 'warn', 'rabbis', 'allcountris', 'eqca', 'broke', 'excellent', 'recommits', 'hold', 'effort', 'lawmakers', 'must', 'me', 'helped', 'uscis', 'word', 'sameif', 'hour', 'f', 'this', 'blade', 'coalition', 'worth', 'nixes', 'can', 'co-workers', 'learn', 'under', 'my', 'scramble', 'dedicated', 'anti-gay-marriage', 'figure', 'lymaneyerart', 'awesome', 'share', 'accept', 'states', 'heard', 'sued/sent', 'want', 'allowed', 'keep', 'association', 'rape', 'listens', '!', 'court', '45th', 'turn', 'rather', 'breaking', 'off', 'hampshire', 'wingnut', '1', 'how', 'hot', 'rudnick', 'reject', 'gate', 'more', 'glaad', 'economy', 'pcusa', 'hearted', 'okay', 'plans', 'getyourprioritiesright', 'stop', 'c&d', 'never-ending', '3', 'wrong', 'countering', 'coming', 'end', 'law', 'flutter', 'pressuring', 'a', 'short', 'remember', 'gaymarriage', '6th', 'backpedals', 'same-gender', 'so', 'road', 'allow', 'pay', 'marriageequality', 'facebook', 'order', 'gtfoh', 'senators', 'feedback', 'office', 'hierarchy', 'over', 'wedding', 'soon', 'argues', 'jews', 'appeals', 'including', 'same', 'cold', 'cole', 'its', 'before', 'group', 'call', ',', 'prodigy', 'allbackrnds', 'civil', 'reuters', 'archbishop', 'mail', 'bye', 'naacp', 'into', 'petition', 'happened', 'then', 'them', 'good', 'return', 'abandons', 'seeking', 'conversations', 'safe', 'nysenate', 'sooner', 'set-back', 'mongering', 'they', 'thanks', 'schools', 'now', 'humanity', 'bigger', 'whitman', 'church-goers', 'down', 'term', 'equality', 'lies', 'even', 'immoral', 'drop', '47', 'rocks', 'billy', 'bursts', 'victory', 'louis', 'crossing', 'did', 'alec', 'republican', 'everyone', 'england', 'covered', 'due', 'house', 'society', 'sponsor', 'fortnight', 'measure', 'our', 'happen', 'sounds', 'flavor', 'out', 'rt', 'by', '100k', 'won', "'", 'announces', 'rev', 'bad', 'strangers', 're', 'health', 'banning', 'got', 'supports', 'gop', 'marinelli', 'equalrights', 'belief', 'tcot', 'city', 'lawmaker', 'commits', 'million', 'bothering', 'quite', 'admits', 'worries', 'reason', 'california', 'york', 'members', 'advisor', 'ask', 'quits', 'turnout', 'absolutely', '2014', 'backwards', 'question', 'could', 'likeness/words', 'times', 'thing', 'american', 'isn', 'threat', 'swing', 'global', 'first', 'already', 'lone', 'welcome', 'jesus', 'embarrassed', 'wash', 'xx', 'brave', 'americans', 'lol', 'another', 'such', 'vote', 'force', 'humanrights', 'kidding', '\x9d', "'em", 'pledge', 'passes', 'little', '"', 'talkback', 'anti-marriage', 'leading', 'top', 'touting', 'their', 'attack', 'wonderful', 'disappointed', 'tell', '1f', 'financially--url', 'too', 'inevitable', 'prove', 'lot', 'baltimoresun', 'part', 'kept', 'postcards', 'believe', 'herself', 'than', 'obama', 'king', 'uhm', 'ben', 'target', 'legalize', 'bed', 'i', 'didn', 'r', 'marriage', 'were', 'cards', 'result', 'and', 'false', 'san', 'minn', 'ichc', 'well', 'poisons', 'argument', 'say', 'have', "'unjust", 'need', 'samesexmarriage', 'limbo', 'saw', 'any', 'catholic', 'issue', 'pupils', 'that', '-', 'majority', 'high', 'take', 'green', 'many', '=', 'urge', '\xc2', 'nytimes', 'exec', 'thrilled', 'approves', 'african', 'pastor', 'landmark', 'nem', 'sponsored', 'plan', 'letter', 'services', 'america', 'gallery', 'michelle', 'singer', 'don', 'surprising', 'url', 'gather', 'stronger', 'drive', 'face', 'traditional', 'federal', 'denouncing', 'ridiculous', 'principle', 'xy', 'sun', 'yaayyyyyy', 'everything', 'doma', 'dioceses', 'annoyed', 'laws', 'shop', 'gayrights', 'signatures', 'shot', 'pope', 'anti-abortion', 'supported', 'fingers', 'sanctity', 'presbyterians', 'fear', 'backstory', 'maine', 'help', 'one', 'anti-gay', '5pm', 'farting', 'bich', 'favor', '(', 'writes', 'hope', 'minnesota', 'should', 'only', 'going', 'candidates', 'folks', 'maureendowd', "'no", 'hrc', 'carolina', 'do', 'his', 'get', 'there', 'hopefully', 'watch', 'dc', 'terrors', 'ones', 'notworse', '2', 'marriageurl', 'areas', 'regarding', 'homosexuals', 'committees', 'equalmarriage', 'married', 'effects', 'bay', 'extremists', 'priest', 'though', 'ban', '14th', 'husband', 'secretary', '18000', 'guessing', 'unions', 'intelligence', 'national', 'followers', 'sex', 'toes', 'are', 'theadvocatemag', 'cheerios', 'ur', 'paul', 'best', 'closer', 'said', 'threats', 'pressured', "'conservative", 'lots', 'wow', 'frustrates', 'please', 'heading', 'case', 'state', 'future', 'staffer', 'horrible', 'linebacker', 'across', 'fight', 'we', 'yanta', 's', 'sold', 'blame', 'kicking', 'respondents', 'here', 'marylanders', 'news', 'spark', 'lawsuit', 'roller', 'ads', 'both', 'c', 'met', 'career', 'country', 'taking', 'equal', 'against', 'blasts', 'tour', 'protection', 'bachmann', 'nom', 'faces', 'hypocrites', 'senator', 'seesteve', 'com', 'asked', 'baltimore', 'joe', 'among', 'very', 'cancer', 'color', 'had', 'ca', 'whatever', 'walk', 'homosexuality', 'simply', 'church', 'labor', 'survivors', 'devil', 'puts', 'come', 'referendum', 'frm', 'adkins', 'liberals', 'much', 'attends', 'gays', 'expected', 'threaten', 'hopefuls', 'wants', 'direction', 'families', 'gay', 'discontinuing', 'with', 'am', 'republicans', 'new', 'else', 'photos', 'lives', 'hateful', 'child', 'kicks', 'overturn', 'at_user', 'those', 'evangelical', 'presbyteri', 'save', 'welcoming', 'look', 'publicly', 'crossed', 'mount', 'polls', 'divorce', 'n', "n't", 'while', 'lesbian', 'argentine', 'chick-fil-a', 'voice', 'frustrating', 'allraces', 've', 'cheryl', 'backing', 'is', 'it', 'fakes', 'couples', 'cant', 'conf', 'in', 'ready', 'emailed', 'an', 'y', 'shunning', 'if', 'liglbt', 'different', 'grant', ')', 'things', 'make', 'bowl', 'roman', 'who', 'check', 'member', 'rules', 'pac', 'speaker', 'babies', 'big', '9', 'party', 'homophobia', 'events', 'conflict', 'favorited', 'used', 'forced', 'sacramento', 'social', 'yesterday', 'uses', 'bloomberg', 'response', 'faiths', 'giuliani', 'haggard', 'vermont', 'task', 'vitriol', 'programs', 'pennsylvania', 'constitutional', 'fighting', 'media', 'without', 'comes', 'mother', 'elex', 'claims', 'the', 'spend', 'left', 'ny', 'nc', 'coaster', 'racismbecause', 'just', 'from', 'being', 'money', 'unconstitutional', '$', 'rest', 'not', 'greetings', 'touch', 'love', 'yes', 'baldwin', 'yet', 'move', 'announcement', 'cut', 'family', 'candidate', 'also', 'marrying', 'enough', 'seems', 'except', 'blog', 'source', 'cue', 'presidential', 'easy', 'meusa', 'has', 'excited', 'applauded', 'real', 'threatens', 'maya', 'around', 'read', 'dvds', 'psa', 'calendars', 'cultural', 'know', 'mom', 'judge', 'using', 'doughnut', 'denying', '%', 'retreat', 'ruled', 'isthe', 'like', 'miami', 'obvious', 'bigotry', '53', 'any1', 'lose', 'remind', 'benefit', 'continue', 'either', 'malnutrition', 'always', 'anti', 'tower', '8', 'amendment', 'same-sex', 'www', 'because', 'old', 'ny4m', 'diocese', 'fucking', 'twitter', 'glbt', 'some', 'back', "'you", 'strongest', 'towards', 'dear', 'home', 'ballot', 'denies', 'deaf', 'lyman', 'for', 'noh8', 'decision', 'normal', 'legal', 'prop', 'religion', 'inequality', 'join', 'cnn', '?', 't', 'allreligions', 'be', 'biased', 'noise', '300', 'burn', 'virtues', 'step', 'leadership', 'refuses', 'dna', 'article', 'super', 'throw', 'hearing', 'on', 'about', 'census', 'ok', 'would', 'of', 'citizens', 'introduces', 'acl', 'swear', 'stand', 'act', 'urges', 'or', 'block', 'ppl', 'raised', 'alliance', 'clinton', 'coupon', 'mommy', 'mills', 'washington', 'signing', 'two', 'iowa', 'd', 'right', 'homeless', 'your', 'avaaz', 'cowards', 'mongors', 'spouse', 'yorkers', 'log', 'her', 'friends', 'support', 'people', 'legislation', 'hey', 'long', 'awarded', 'senate', 'again', 'way', 'suit', 'slowly', ':', 'was', 'war', 'doctored', 'files', 'catholics', 'speculate', '/immigration', 'north', 'invite', 'offer', 'jewish', 'bus', 'becoming', 'alexi', 'immigration', 'but', 'larry', 'hear', 'promote', 'true', 'ceremonies', 'he', 'count', 'marylander', 'seiu', 'mrs', 'proceeds', 'ut', 'official', 'up', 'us', 'lead', 'ranks', "'re", 'conservatives', 'uk', 'jerry', 'piece', 'called', 'gone', 'supreme', 'marriageequality-', 'ad', 'videos', 'm', 'year', 'romney', 'general', 'biden', 'as', 'at', 'file', 'rally', 'ing', 'graham', 'bishop', 'supporters', 'nh', 'diego', 'nj', 'heather', 'no', 'credibility', 'peace', 'when', 'backs', 'event', 'field', 'u', 'you', 'really', 'roll', 'ilsen', 'op-ed', 'francisco', 'star', 'congress', 'nfl', 're-election', 'eiffel', 'md4me', 'insults', 'ptown', 'muslims', 'rural', 'crissy', "'m", 'repeal', 'robosexual', 'christians', 'building', 'tims', 'longer', 'calls', 'fund', 'ending', 'no4m', 'warm', 'mass', 'time', 'walker', 'serious', 'iowans', 'having'])
+
+<lambda> fold 0
+accuracy: 0.296296296296
+pos precision: 0.296296296296
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 1
+accuracy: 0.333333333333
+pos precision: 0.333333333333
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 2
+accuracy: 0.37037037037
+pos precision: 0.37037037037
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 3
+accuracy: 0.259259259259
+pos precision: 0.259259259259
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 4
+accuracy: 0.37037037037
+pos precision: 0.37037037037
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 5
+accuracy: 0.461538461538
+pos precision: 0.461538461538
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 6
+accuracy: 0.384615384615
+pos precision: 0.384615384615
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 7
+accuracy: 0.423076923077
+pos precision: 0.423076923077
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 8
+accuracy: 0.423076923077
+pos precision: 0.423076923077
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 9
+accuracy: 0.423076923077
+pos precision: 0.423076923077
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 10
+accuracy: 0.5
+pos precision: 0.5
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+0.38591038591 [0.2962962962962963, 0.3333333333333333, 0.37037037037037035, 0.25925925925925924, 0.37037037037037035, 0.46153846153846156, 0.38461538461538464, 0.4230769230769231, 0.4230769230769231, 0.4230769230769231, 0.5]
+evaluating best words + bigram chi_sq word features
+<lambda> fold 0
+accuracy: 0.296296296296
+pos precision: 0.296296296296
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 1
+accuracy: 0.333333333333
+pos precision: 0.333333333333
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 2
+accuracy: 0.37037037037
+pos precision: 0.37037037037
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 3
+accuracy: 0.259259259259
+pos precision: 0.259259259259
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 4
+accuracy: 0.37037037037
+pos precision: 0.37037037037
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 5
+accuracy: 0.461538461538
+pos precision: 0.461538461538
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 6
+accuracy: 0.384615384615
+pos precision: 0.384615384615
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 7
+accuracy: 0.423076923077
+pos precision: 0.423076923077
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 8
+accuracy: 0.423076923077
+pos precision: 0.423076923077
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 9
+accuracy: 0.423076923077
+pos precision: 0.423076923077
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+<lambda> fold 10
+accuracy: 0.5
+pos precision: 0.5
+pos recall: 1.0
+neg precision: None
+neg recall: 0.0
+0.38591038591 [0.2962962962962963, 0.3333333333333333, 0.37037037037037035, 0.25925925925925924, 0.37037037037037035, 0.46153846153846156, 0.38461538461538464, 0.4230769230769231, 0.4230769230769231, 0.4230769230769231, 0.5]
+{'best_words_and_top_bigrams': [0.2962962962962963, 0.3333333333333333, 0.37037037037037035, 0.25925925925925924, 0.37037037037037035, 0.46153846153846156, 0.38461538461538464, 0.4230769230769231, 0.4230769230769231, 0.4230769230769231, 0.5], 'words_top_bigrams': [0.4074074074074074, 0.48148148148148145, 0.7037037037037037, 0.5185185185185185, 0.6296296296296297, 0.5, 0.5384615384615384, 0.7692307692307693, 0.46153846153846156, 0.5, 0.8076923076923077], 'best_words': [0.2962962962962963, 0.3333333333333333, 0.37037037037037035, 0.25925925925925924, 0.37037037037037035, 0.46153846153846156, 0.38461538461538464, 0.4230769230769231, 0.4230769230769231, 0.4230769230769231, 0.5], 'all_word_bigram': [0.4074074074074074, 0.48148148148148145, 0.7037037037037037, 0.5185185185185185, 0.6296296296296297, 0.5, 0.5384615384615384, 0.7692307692307693, 0.46153846153846156, 0.5, 0.8076923076923077], 'words': [0.4444444444444444, 0.48148148148148145, 0.5925925925925926, 0.37037037037037035, 0.6666666666666666, 0.34615384615384615, 0.38461538461538464, 0.6153846153846154, 0.2692307692307692, 0.34615384615384615, 0.7307692307692307]}
   ==> Training (10 iterations)
 
       Iteration    Log Likelihood    Accuracy
@@ -2194,124 +2537,6 @@ accuracy: 0.344827586207
              8          -1.04046        0.385
              9          -1.03447        0.385
          Final          -1.02852        0.399
-NaiveBayes Training set Accuracy: 0.907216494845
-Max Entropy Accuracy: 0.398625429553
-
-Most Informative Features
-     contains(amendment) = True              neg : pos    =      9.4 : 1.0
-         contains(court) = True              neu : pos    =      5.0 : 1.0
-           contains(sex) = True              neu : neg    =      4.3 : 1.0
-       contains(supreme) = True              neu : pos    =      4.3 : 1.0
-     contains(marriages) = True              neg : pos    =      4.0 : 1.0
-      contains(campaign) = True              neg : pos    =      4.0 : 1.0
-          contains(pope) = True              neg : pos    =      4.0 : 1.0
-           contains(url) = False             pos : neu    =      3.8 : 1.0
-      contains(catholic) = True              neg : pos    =      3.7 : 1.0
-          contains(news) = True              neg : pos    =      3.5 : 1.0
-        contains(church) = True              neg : neu    =      3.5 : 1.0
-         contains(equal) = True              pos : neu    =      3.3 : 1.0
-      contains(supports) = True              pos : neg    =      3.2 : 1.0
-         contains(fight) = True              pos : neu    =      3.1 : 1.0
-          contains(love) = True              pos : neu    =      3.1 : 1.0
-         contains(urges) = True              neg : pos    =      3.1 : 1.0
-            contains(ca) = True              neg : pos    =      3.1 : 1.0
-         contains(calls) = True              neg : pos    =      3.1 : 1.0
-          contains(sign) = True              neg : pos    =      3.1 : 1.0
-            contains(dc) = True              neg : pos    =      3.1 : 1.0
-           contains(ban) = True              neu : pos    =      3.0 : 1.0
-  contains(conservative) = True              neg : neu    =      3.0 : 1.0
-          contains(lgbt) = True              neg : neu    =      2.9 : 1.0
-            contains(rt) = True              neg : pos    =      2.9 : 1.0
-     contains(americans) = True              neu : pos    =      2.7 : 1.0
-          contains(doma) = True              neu : pos    =      2.7 : 1.0
-          contains(blog) = True              neu : pos    =      2.7 : 1.0
-        contains(social) = True              neg : neu    =      2.7 : 1.0
-           contains(law) = True              neg : neu    =      2.7 : 1.0
-     contains(minnesota) = True              neg : neu    =      2.7 : 1.0
-contains(marriageequality) = True              neg : neu    =      2.7 : 1.0
-           contains(usa) = True              pos : neu    =      2.6 : 1.0
-         contains(maine) = True              neu : pos    =      2.6 : 1.0
-           contains(url) = True              neu : pos    =      2.3 : 1.0
-          contains(lead) = True              neg : pos    =      2.2 : 1.0
-          contains(york) = True              neg : pos    =      2.2 : 1.0
-          contains(roll) = True              neg : pos    =      2.2 : 1.0
-          contains(prop) = True              neg : pos    =      2.2 : 1.0
-          contains(glbt) = True              neg : pos    =      2.2 : 1.0
-    contains(washington) = True              neg : pos    =      2.2 : 1.0
-        contains(attack) = True              neg : pos    =      2.2 : 1.0
-        contains(pledge) = True              neg : pos    =      2.2 : 1.0
-       contains(leaders) = True              neg : pos    =      2.2 : 1.0
-        contains(pastor) = True              neg : pos    =      2.2 : 1.0
-         contains(rally) = True              neg : pos    =      2.2 : 1.0
-       contains(support) = True              pos : neg    =      2.2 : 1.0
-     contains(catholics) = True              neg : neu    =      2.1 : 1.0
-           contains(via) = True              neg : pos    =      2.1 : 1.0
-      contains(churches) = True              neu : pos    =      2.1 : 1.0
-          contains(bill) = True              neu : neg    =      2.0 : 1.0
-          contains(gays) = True              neu : neg    =      2.0 : 1.0
-contains(constitutional) = True              pos : neu    =      2.0 : 1.0
-      contains(fighting) = True              pos : neu    =      2.0 : 1.0
-      contains(equality) = True              pos : neu    =      2.0 : 1.0
-        contains(repeal) = True              pos : neu    =      2.0 : 1.0
-      contains(national) = True              pos : neu    =      2.0 : 1.0
-        contains(rights) = True              neu : pos    =      1.9 : 1.0
-         contains(drive) = True              neu : pos    =      1.9 : 1.0
-          contains(help) = True              neu : pos    =      1.9 : 1.0
-      contains(majority) = True              neu : pos    =      1.9 : 1.0
-         contains(civil) = True              neu : pos    =      1.9 : 1.0
-        contains(ballot) = True              neu : pos    =      1.9 : 1.0
-        contains(graham) = True              neg : neu    =      1.9 : 1.0
-        contains(senate) = True              neg : neu    =      1.9 : 1.0
-          contains(stop) = True              neg : neu    =      1.9 : 1.0
-         contains(warns) = True              neg : neu    =      1.9 : 1.0
-      contains(carolina) = True              neg : neu    =      1.9 : 1.0
-        contains(pupils) = True              neg : neu    =      1.9 : 1.0
-         contains(billy) = True              neg : neu    =      1.9 : 1.0
-       contains(schools) = True              neg : neu    =      1.9 : 1.0
-        contains(bishop) = True              neg : neu    =      1.8 : 1.0
-       contains(freedom) = True              pos : neg    =      1.7 : 1.0
-         contains(biden) = True              pos : neg    =      1.7 : 1.0
-         contains(obama) = True              neg : neu    =      1.6 : 1.0
-          contains(hope) = True              pos : neu    =      1.4 : 1.0
-    contains(archbishop) = True              pos : neu    =      1.4 : 1.0
-     contains(hampshire) = True              pos : neu    =      1.4 : 1.0
-         contains(folks) = True              pos : neu    =      1.4 : 1.0
-    contains(supporting) = True              pos : neu    =      1.4 : 1.0
-       contains(country) = True              pos : neu    =      1.4 : 1.0
-      contains(american) = True              pos : neu    =      1.4 : 1.0
-         contains(issue) = True              pos : neu    =      1.4 : 1.0
-   contains(gaymarriage) = True              pos : neu    =      1.4 : 1.0
-       contains(welcome) = True              pos : neu    =      1.4 : 1.0
-           contains(yes) = True              pos : neu    =      1.4 : 1.0
-       contains(article) = True              pos : neu    =      1.4 : 1.0
- contains(conservatives) = True              neg : neu    =      1.4 : 1.0
-     contains(coalition) = True              neg : pos    =      1.3 : 1.0
-          contains(lose) = True              neg : pos    =      1.3 : 1.0
-         contains(stand) = True              neg : pos    =      1.3 : 1.0
-    contains(frustrates) = True              neg : pos    =      1.3 : 1.0
-      contains(facebook) = True              neg : pos    =      1.3 : 1.0
-          contains(king) = True              neg : pos    =      1.3 : 1.0
-     contains(bloomberg) = True              neg : pos    =      1.3 : 1.0
-        contains(forget) = True              neg : pos    =      1.3 : 1.0
-         contains(media) = True              neg : pos    =      1.3 : 1.0
-         contains(money) = True              neg : pos    =      1.3 : 1.0
-         contains(focus) = True              neg : pos    =      1.3 : 1.0
-          contains(join) = True              neg : pos    =      1.3 : 1.0
-            contains(tv) = True              neg : pos    =      1.3 : 1.0
-NaiveBayes Most Informative: None
-
-  -0.023 contains(amendment)==True and label is 'pos'
-   0.018 contains(safe)==True and label is 'neg'
-   0.018 contains(read)==True and label is 'neg'
-   0.018 contains(passes)==True and label is 'neg'
-   0.018 contains(rape)==True and label is 'neg'
-   0.018 contains(step)==True and label is 'neg'
-   0.018 contains(maryland)==True and label is 'neg'
-   0.018 contains(cancer)==True and label is 'neg'
-   0.018 contains(homophobia)==True and label is 'neg'
-   0.018 contains(bigger)==True and label is 'neg'
-Max Entropy Most Informative: None
-
 Looking at Joe Solmonese of HRC on YouTube. He.s a genius and the people behind marriage equality couldn.t have a better leader than him!	looking at joe solmonese of hrc on youtube. he.s a genius and the people behind marriage equality couldn.t have a better leader than him!	pos	pos
 "Husband and I married in Massachusedttes, live in Maryland.  Cheering, Governor O.Malley saying he wants to recognize out of state marriages"	husband and i married in massachusedttes, live in maryland. cheering, governor o.malley saying he wants to recognize out of state marriages	pos	pos
 I wrote our Maryland Governor Martin O.Malley to thank him for his statement of support for recognizing out of State marriages.	i wrote our maryland governor martin o.malley to thank him for his statement of support for recognizing out of state marriages	pos	pos
