@@ -21,6 +21,7 @@ select tweet_id, retweet_ct, from_user, from_userId, to_user, to_userId, created
 	or upper(location) like upper ('%md%'))
 	
 
+
 #Selection to get all tweets that we care about				
 select tweet_id, retweet_ct, from_user, from_userId, to_user, to_userId, created_dt, REPLACE(replace(txt, char(13), ''), char(10), ''), REPLACE(replace(source, char(13), ''), char(10), ''), location, geolocation, place, insert_dt, access_level, annotations, replyto_screenname, replyto_statusid, ratelimit_status, retweeted_status, screen_name from twt_tweets 
 	where  

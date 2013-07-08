@@ -145,7 +145,7 @@ def evaluate_classifier(texts, featx,k=10, fold=0):
     print 'neg recall:', nltk.metrics.recall(refsets['neg'], testsets['neg'])
     
     # This can be uncommented to print informative features (uses a lot of memory)
-    #classifier.show_most_informative_features(n=20)
+    classifier.show_most_informative_features(n=10)
 
     if fold < k:
         return [accuracy] + evaluate_classifier(texts, featx, k, fold+1)

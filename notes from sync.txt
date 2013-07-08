@@ -1,10 +1,21 @@
  
+ 7/03/2013
+ 	Pull a list of features for the words (done)
+ 	Query for how many tweets each organization has (done)
+ 	What is the date range of the tweets (done)
+ 	Update the literature review (done)
+ 	
+	TODO:
+	
+ 	Put the CSV file and put it back into the database
+ 	Put the query as functions into the database 	
+ 
  6/26/2013
  	Plot the sentiment that is being expressed on Twitter
  	Plot the sentiment that is being expressed through newspapers
  	
  	Expand the set by any tweets sent by or too organizations sent in Maryland (done)
  	
- 	Training set/Test set clarification
- 	
- 	Keep adding papers to Mendelay
+ 	Training set/Test set clarification (done)
+ 	 
+ 	Keep adding papers to Mendelay (done)
