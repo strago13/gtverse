@@ -1,4 +1,5 @@
-#import regex
+import libsvm_classifier
+import pickle
 import math
 import collections, itertools
 import random
@@ -14,42 +15,6 @@ from nltk.metrics import BigramAssocMeasures
 from nltk.collocations import BigramCollocationFinder
 from nltk.probability import FreqDist, ConditionalFreqDist
 
-#Build the SVM feature vector
-def getSVMFeatureVectorAndLabels(inTweets, fList):
-    sortedFeatures = sorted(fList)
-    map = {}
-    feature_vector = []
-    labels = []
-    for t in inTweets:
-        sLabel = 0
-        map = {}
-        #Initialize empty map
-        for w in sortedFeatures:
-            map[w] = 0
-        
-        tweet_words = t[0]
-        tweet_opinion = t[1]
-        #Fill the map
-        for word in tweet_words:
-            #process the word (remove repetitions and punctuations)
-            word = replaceTwoOrMore(word) 
-            word = word.strip('\'"?,.')
-            #set map[word] to 1 if word exists
-            if word in map:
-                map[word] = 1
-        #end for loop
-        values = map.values()
-        feature_vector.append(values)
-        if(tweet_opinion == 'positive'):
-            sLabel = 0
-        elif(tweet_opinion == 'negative'):
-            sLabel = 1
-        elif(tweet_opinion == 'neutral'):
-            sLabel = 2
-        labels.append(sLabel)            
-    #return the list of feature_vector and labels
-    return {'feature_vector' : feature_vector, 'labels': labels}
-#end
 
 #start replaceTwoOrMore
 def replaceTwoOrMore(s):
@@ -178,15 +143,15 @@ def evaluate_classifier(texts, featx,k=10, fold=0):
     accuracy = nltk.classify.util.accuracy(classifier, testfeats)
     print featx.__name__, 'fold', fold
     print 'accuracy:', accuracy
-    print 'pos precision:', nltk.metrics.precision(refsets['pos'], testsets['pos'])
-    print 'pos recall:', nltk.metrics.recall(refsets['pos'], testsets['pos'])
-    print 'neg precision:', nltk.metrics.precision(refsets['neg'], testsets['neg'])
-    print 'neg recall:', nltk.metrics.recall(refsets['neg'], testsets['neg'])
-    print 'neu precision:', nltk.metrics.precision(refsets['neu'], testsets['neu'])
-    print 'neu recall:', nltk.metrics.recall(refsets['neu'], testsets['neu'])
+    print 'pos precision:', nltk.metrics.precision(refsets['positive'], testsets['positive'])
+    print 'pos recall:', nltk.metrics.recall(refsets['positive'], testsets['positive'])
+    print 'neg precision:', nltk.metrics.precision(refsets['negative'], testsets['negative'])
+    print 'neg recall:', nltk.metrics.recall(refsets['negative'], testsets['negative'])
+    print 'neu precision:', nltk.metrics.precision(refsets['neutral'], testsets['neutral'])
+    print 'neu recall:', nltk.metrics.recall(refsets['neutral'], testsets['neutral'])
     
     # This can be uncommented to print informative features (uses a lot of memory)
-    #classifier.show_most_informative_features(n=10)
+    classifier.show_most_informative_features(n=10)
 
     if fold < k:
         return [accuracy] + evaluate_classifier(texts, featx, k, fold+1)
@@ -202,26 +167,26 @@ def get_best_words(corpora):
     word_fd = FreqDist()
     label_word_fd = ConditionalFreqDist()
 
-    for text in corpora['pos']:
+    for text in corpora['positive']:
         for word in text.tokens:
             word_fd.inc(word.lower())
-            label_word_fd['pos'].inc(word.lower())
+            label_word_fd['positive'].inc(word.lower())
  
-    for text in corpora['neg']:
+    for text in corpora['negative']:
         for word in text.tokens:
             word_fd.inc(word.lower())
-            label_word_fd['neg'].inc(word.lower())
+            label_word_fd['negative'].inc(word.lower())
   
-    pos_word_count = label_word_fd['pos'].N()
-    neg_word_count = label_word_fd['neg'].N()
+    pos_word_count = label_word_fd['positive'].N()
+    neg_word_count = label_word_fd['negative'].N()
     total_word_count = pos_word_count + neg_word_count
  
     word_scores = {}
  
     for word, freq in word_fd.iteritems():
-        pos_score = BigramAssocMeasures.chi_sq(label_word_fd['pos'][word],
+        pos_score = BigramAssocMeasures.chi_sq(label_word_fd['positive'][word],
                                                (freq, pos_word_count), total_word_count)
-        neg_score = BigramAssocMeasures.chi_sq(label_word_fd['neg'][word],
+        neg_score = BigramAssocMeasures.chi_sq(label_word_fd['negative'][word],
                                                (freq, neg_word_count), total_word_count)
         word_scores[word] = pos_score + neg_score
  
@@ -289,6 +254,8 @@ for row in inpTweets:
     tweetSet.append({'text':tweet, 'label':sentiment})
 #end loop
 
+######This is for regular....we will uncomment this once the SVM portion of our code works
+
 #ensuring we have a random traning set each time
 #seeding with the computers time
 random.seed()
@@ -349,46 +316,19 @@ NBClassifier = nltk.NaiveBayesClassifier.train(training_set)
 #Train the Max Entropy Classifier
 #MaxEntClassifier = nltk.classify.maxent.MaxentClassifier.train(training_set, 'GIS', trace=3, \
                        #encoding=None, labels=None, sparse=True, gaussian_prior_sigma=0, max_iter = 10)
-
-#Train the SVM classifier
-classifierDumpFile = ""
-result = getSVMFeatureVectorAndLabels(training_set, featureList)
-problem = svm_problem(result['labels'], result['feature_vector'])		
-#'-q' option suppress console output
-param = svm_parameter('-q')
-param.kernel_type = LINEAR
-svmClassifier = svm_train(problem, param)
-svm_save_model(classifierDumpFile, svmClassifier)
-  		   
-
-
+					   
 print "NaiveBayes Training set Accuracy: %s" % (nltk.classify.accuracy(NBClassifier, training_set))
 #print "Max Entropy Accuracy: %s\n" % (nltk.classify.accuracy(MaxEntClassifier, training_set))
 print "NaiveBayes Most Informative: %s\n" % (NBClassifier.show_most_informative_features(10))
 #print "Max Entropy Most Informative: %s\n" % (MaxEntClassifier.show_most_informative_features(10))
 
-#We need to read the entire set of tweets from a .csv file and run them through the classification algorithm
-#Read the tweets one by one and process it
-inpTweetsContent = csv.reader(open('tweets.csv', 'rb'), delimiter='*', quotechar='|')
-pp = pprint.PrettyPrinter()
-tweets = []
-test = []
-for row in inpTweetsContent:
-	tweet = row[0]
-	#print 'tweet %s||\n' % (tweet)
-	tweetParsed = processTweet(tweet)
-	#sentimentNb = NBClassifier.classify(extract_features(getFeatureVector(processTweet(tweet), stopWords)))
-	#sentimentMe = MaxEntClassifier.classify(extract_features(getFeatureVector(processTweet(tweet), stopWords)))
-	test.append(extract_features(getFeatureVector(processTweet(tweet))))
-	#print "%s\t%s\t%s" % (tweet, tweetParsed, sentimentNb)
-#end loop
-
-
-#Test the classifier
-test_feature_vector = getSVMFeatureVectorAndLabels(test, featureList)
-#p_labels contains the final labeling result
-p_labels, p_accs, p_vals = svm_predict([0] * len(test_feature_vector),test_feature_vector, svmClassifier)		   
-print "SVM p_labels: %s\n" % p_labels	
+trainingDataFile = 'tweets_training_set.csv'         
+tweetsDataFile = 'tweets.csv'       
+classifierDumpFile = 'data/test/svm_test_model.pickle'
+trainingRequired = 1
+sc = libsvm_classifier.SVMClassifier(tweetsDataFile, trainingDataFile, classifierDumpFile, trainingRequired)
+sc.classify()
+sc.accuracy()
 
 '''
 # Test the classifier
