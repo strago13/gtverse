@@ -15,6 +15,7 @@ from nltk.metrics import BigramAssocMeasures
 from nltk.collocations import BigramCollocationFinder
 from nltk.probability import FreqDist, ConditionalFreqDist
 
+
 #start replaceTwoOrMore
 def replaceTwoOrMore(s):
     #look for 2 or more repetitions of character
@@ -245,14 +246,15 @@ for row in inpTweets:
     featureVector = getFeatureVector(processedTweet, stopWords)
     for word in featureVector:
         #print '%s %s' % (word, sentiment)
-        print '%s\t%s' % (word, sentiment)
+        #print '%s\t%s' % (word, sentiment)
+		print '%s' % (word)
 		
 	#print "featureVector = %s\n" % (featureVector)
     #print "tweet = %s , featureVector = %s\n" % (tweet, featureVector)
     tweets.append((featureVector, sentiment))
     tweetSet.append({'text':tweet, 'label':sentiment})
 #end loop
-
+'''
 ######This is for regular....we will uncomment this once the SVM portion of our code works
 
 #ensuring we have a random traning set each time
@@ -321,12 +323,13 @@ print "NaiveBayes Training set Accuracy: %s" % (nltk.classify.accuracy(NBClassif
 print "NaiveBayes Most Informative: %s\n" % (NBClassifier.show_most_informative_features(10))
 #print "Max Entropy Most Informative: %s\n" % (MaxEntClassifier.show_most_informative_features(10))
 
+'''
 trainingDataFile = 'tweets_training_set.csv'         
-tweetsDataFile = 'tweets.csv'       
+tweetsDataFile = 'tweets md raw.csv'       
 classifierDumpFile = 'data/test/svm_test_model.pickle'
 trainingRequired = 1
-sc = libsvm_classifier.SVMClassifier(tweetsDataFile, trainingDataFile, classifierDumpFile, trainingRequired)
-sc.classify()
+sc = libsvm_classifier.SVMClassifier(tweetsDataFile, trainingDataFile, classifierDumpFile, stopWords, featureList, trainingRequired)
+#sc.classify()
 sc.accuracy()
 
 '''

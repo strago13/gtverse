@@ -86,9 +86,9 @@ class ClassifierHelper:
             feature_vector.append(values)                    
         return feature_vector
     #end
-    
+    	
     #start process_tweet
-    def process_tweet(self, tweet):
+    def process_tweet_stopwords(self, tweet, stopWords):
         #Conver to lower case
         tweet = tweet.lower()
         #Convert https?://* to URL
@@ -104,7 +104,29 @@ class ClassifierHelper:
         #remove first/last " or 'at string end
         tweet = tweet.rstrip('\'"')
         tweet = tweet.lstrip('\'"')
-        return tweet
+		
+        #We want to remove the stop words from our tweet as well as they could influence
+        #the final result
+        words = tweet.split()
+       
+        new_tweet = ''
+        for w in words:
+           
+		   #we found a stop word or not a word  
+           if(w in stopWords):    
+		      w = w.replace(w, '')
+           #end if
+		   
+           new_tweet += w
+		   
+           if (w != ''):
+              new_tweet += ' '
+           #end if
+        #end for loop
+		
+        #print 'OLD TWEET: %s\nNEW TWEET: %s\n' % (tweet, new_tweet)
+		           		   
+        return new_tweet
     #end 
     
     #start is_ascii

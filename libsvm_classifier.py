@@ -1,3 +1,4 @@
+
 import svm
 from svmutil import *
 import re, pickle, csv, os
@@ -8,17 +9,21 @@ class SVMClassifier:
     """ SVM Classifier """
     #variables    
     #start __init__
-    def __init__(self, tweetsDataFile, trainingDataFile, classifierDumpFile, trainingRequired = 0):
+    def __init__(self, tweetsDataFile, trainingDataFile, classifierDumpFile, iStopWords, iFeatureList, trainingRequired = 0):
     #def __init__(self, data, keyword, time, trainingDataFile, classifierDumpFile, trainingRequired = 0):
         #Instantiate classifier helper        
         self.helper = classifier_helper.ClassifierHelper('tweets_feature_list.txt')
+        self.helperFullList = classifier_helper.ClassifierHelper('tweets_full_feature_list.txt')		
                      
-        #read in and process our self supplied tweets			 
+        #read in and process our self supplied tweets        	
         self.tweetsDataFile = tweetsDataFile
         self.data = self.getDataFromFiles(self.tweetsDataFile)
         self.lenTweets = len(self.data)				
         self.origTweets = self.getUniqData(self.data)
+        self.stopWords = iStopWords
+        self.featureList = iFeatureList
         self.tweets = self.getProcessedTweets(self.origTweets)    			                   			     
+        
 				
         self.results = {}
         self.neut_count = [0] * self.lenTweets
@@ -63,7 +68,7 @@ class SVMClassifier:
             d = data[i]
             tw = []
             for t in d:
-                tw.append(self.helper.process_tweet(t))
+                tw.append(self.helperFullList.process_tweet_stopwords(t, self.stopWords))
             tweets[i] = tw            
         #end loop
         return tweets
@@ -106,7 +111,7 @@ class SVMClassifier:
         
         #SVM Trainer
         problem = svm_problem(self.labels, self.feature_vectors)
-        #'-q' option suppress console output
+        #'-q' option suppress console output		
         param = svm_parameter('-q')
         param.kernel_type = LINEAR
         #param.show()
@@ -125,10 +130,11 @@ class SVMClassifier:
         reader = csv.reader(fp, delimiter='*', quotechar='|')
         #reader = csv.reader( fp, delimiter=',', quotechar='"', escapechar='\\' )
         tweetItems = []
+        #print 'inside getFilteredTrainingData\n'
         count = 1       
         for row in reader:
             #processed_tweet = self.helper.process_tweet(row[4])
-            processed_tweet = self.helper.process_tweet(row[1])
+            processed_tweet = self.helper.process_tweet_stopwords(row[1], self.stopWords)			
             sentiment = row[0]
             
             if(sentiment == 'neutral'):                
@@ -176,9 +182,11 @@ class SVMClassifier:
             test_tweets = []
             res = {}
             for words in tw:
-                words_filtered = [e.lower() for e in words.split() if(self.helper.is_ascii(e))]
+                #words_filtered = [e.lower() for e in words.split() if(self.helper.is_ascii(e))]
+                words_filtered = [e.lower() for e in words.split() if(self.helperFullList.is_ascii(e))]				
                 test_tweets.append(words_filtered)
-            test_feature_vector = self.helper.getSVMFeatureVector(test_tweets)
+            #test_feature_vector = self.helper.getSVMFeatureVector(test_tweets)            
+            test_feature_vector = self.helperFullList.getSVMFeatureVector(test_tweets)            
             p_labels, p_accs, p_vals = svm_predict([0] * len(test_feature_vector),\
                                                 test_feature_vector, self.classifier)
             count = 0
@@ -218,37 +226,52 @@ class SVMClassifier:
 
     #start accuracy
     def accuracy(self):
+                
         tweets = self.getFilteredTrainingData(self.trainingDataFile)
         test_tweets = []
-        for (t, l) in tweets:
-            words_filtered = [e.lower() for e in t.split() if(self.helper.is_ascii(e))]
-            test_tweets.append(words_filtered)
-
-        test_feature_vector = self.helper.getSVMFeatureVector(test_tweets)
-        p_labels, p_accs, p_vals = svm_predict([0] * len(test_feature_vector),\
+		
+		#find our training and test size
+        num_folds = 10
+        subset_size = len(tweets)/num_folds
+		
+        for i in range(num_folds):
+          testing_this_round = tweets[i*subset_size:][:subset_size]
+          training_this_round = tweets[:i*subset_size] + tweets[(i+1)*subset_size:]		
+		
+          for (t, l) in testing_this_round:
+              words_filtered = [e.lower() for e in t.split() if(self.helper.is_ascii(e))]
+              test_tweets.append(words_filtered)
+		  
+          test_feature_vector = self.helper.getSVMFeatureVector(test_tweets)        
+		
+          p_labels, p_accs, p_vals = svm_predict([0] * len(test_feature_vector),\
                                             test_feature_vector, self.classifier)
-        count = 0
-        total , correct , wrong = 0, 0, 0
-        self.accuracy = 0.0
-        for (t,l) in tweets:
-            label = p_labels[count]
-            if(label == 0):
-                label = 'positive'
-            elif(label == 1):
-                label = 'negative'
-            elif(label == 2):
-                label = 'neutral'
+          count = 0
+          total , correct , wrong = 0, 0, 0
+          self.accuracy = 0.0
+          for (t,l) in testing_this_round:
+              label = p_labels[count]
+			
+              if(label == 0):
+                  label = 'positive'
+              elif(label == 1):
+                  label = 'negative'
+              elif(label == 2):
+                  label = 'neutral'
 
-            if(label == l):
-                correct+= 1
-            else:
-                wrong+= 1
-            total += 1
-            count += 1
+              if(label == l):
+                  correct+= 1
+              else:
+                  wrong+= 1
+              total += 1
+              count += 1
+          #end loop
+
+          test_tweets = []
+          self.accuracy = (float(correct)/total)*100
+          print 'fold= %d, total = %d, correct = %d, wrong = %d, accuracy = %.2f' % \
+                                                (i, total, correct, wrong, self.accuracy)        														  
         #end loop
-        self.accuracy = (float(correct)/total)*100
-        print 'Total = %d, Correct = %d, Wrong = %d, Accuracy = %.2f' % \
-                                                (total, correct, wrong, self.accuracy)        
     #end
 
     #start getHTML
