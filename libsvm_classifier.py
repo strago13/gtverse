@@ -1,4 +1,4 @@
-
+import random
 import svm
 from svmutil import *
 import re, pickle, csv, os
@@ -228,7 +228,12 @@ class SVMClassifier:
     def accuracy(self):
                 
         tweets = self.getFilteredTrainingData(self.trainingDataFile)
+        #shuffle our array of tweets
+        random.seed()
+        random.shuffle(tweets)		
+		
         test_tweets = []
+        train_tweets_sentiment = []
 		
 		#find our training and test size
         num_folds = 10
@@ -239,19 +244,39 @@ class SVMClassifier:
           training_this_round = tweets[:i*subset_size] + tweets[(i+1)*subset_size:]		
 		
           for (t, l) in testing_this_round:
+              #print 'i: %s testing t: %s  l:%s' % (i, t, l)
               words_filtered = [e.lower() for e in t.split() if(self.helper.is_ascii(e))]
               test_tweets.append(words_filtered)
-		  
-          test_feature_vector = self.helper.getSVMFeatureVector(test_tweets)        
+          #end loop	
+          for (t, l) in training_this_round: 
+            words_filtered = [e.lower() for e in t.split() if(self.helper.is_ascii(e))]
+            #print 'i: %s training t: %s  l:%s' % (i, t, l)
+            train_tweets_sentiment.append((words_filtered, l))
+          #end loop		
+		
+          test_feature_vector = self.helper.getSVMFeatureVector(test_tweets)
+          results = self.helper.getSVMFeatureVectorAndLabels(train_tweets_sentiment)
+          train_feature_vector = results['feature_vector']
+          train_labels = results['labels']
+        
+          #SVM Trainer
+          problem = svm_problem(train_labels, train_feature_vector)
+          #'-q' option suppress console output		
+          param = svm_parameter('-q')
+          param.kernel_type = LINEAR
+          #param.show()
+          trainClassifier = svm_train(problem, param)		
 		
           p_labels, p_accs, p_vals = svm_predict([0] * len(test_feature_vector),\
-                                            test_feature_vector, self.classifier)
+                                            test_feature_vector, trainClassifier)
           count = 0
           total , correct , wrong = 0, 0, 0
           self.accuracy = 0.0
           for (t,l) in testing_this_round:
               label = p_labels[count]
 			
+              print 'i: %s testing t: %s  l:%s clab: %s' % (i, t, l, label)  	
+			  
               if(label == 0):
                   label = 'positive'
               elif(label == 1):
@@ -268,10 +293,11 @@ class SVMClassifier:
           #end loop
 
           test_tweets = []
+          train_tweets_sentiment = []
           self.accuracy = (float(correct)/total)*100
           print 'fold= %d, total = %d, correct = %d, wrong = %d, accuracy = %.2f' % \
                                                 (i, total, correct, wrong, self.accuracy)        														  
-        #end loop
+       #end loop
     #end
 
     #start getHTML

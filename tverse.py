@@ -329,8 +329,8 @@ tweetsDataFile = 'tweets md raw.csv'
 classifierDumpFile = 'data/test/svm_test_model.pickle'
 trainingRequired = 1
 sc = libsvm_classifier.SVMClassifier(tweetsDataFile, trainingDataFile, classifierDumpFile, stopWords, featureList, trainingRequired)
-#sc.classify()
 sc.accuracy()
+sc.classify()
 
 '''
 # Test the classifier
